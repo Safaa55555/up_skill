@@ -8,9 +8,9 @@ class LanguageScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text("Choose Your Language"),
-        ElevatedButton(onPressed: (){}, child: Text("English")),
-        ElevatedButton(onPressed: (){}, child: Text("Arabic"))
+        const Text("Choose Your Language"),
+        ElevatedButton(onPressed: (){}, child: const Text("English")),
+        ElevatedButton(onPressed: (){}, child: const Text("Arabic"))
       ],),);
   }
 }

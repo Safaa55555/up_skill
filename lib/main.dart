@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+=======
 import 'package:up_skill/categories_screen.dart';
 
 void main() {
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
-      ),
+=======
       home: const CategoriesScreen(),
     );
   }
