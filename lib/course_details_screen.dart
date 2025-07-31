@@ -32,9 +32,9 @@ class CourseDetailsScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              SectionTitle('Mastering React: Build Dynamic Web Apps'),
+              const SectionTitle('Mastering React: Build Dynamic Web Apps'),
               const SizedBox(height: 8),
-              BodyText(
+              const BodyText(
                   'Learn React from scratch and build real-world applications '
                       'with this comprehensive course.. This course covers '
                       'the basics to advanced techniques, suitable for all skill levels.'),
@@ -85,7 +85,7 @@ class CourseDetailsScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 24),
-              SectionTitle('About This Course'),
+              const SectionTitle('About This Course'),
               const SizedBox(height: 8),
               const BodyText(
                   'Learn how to build fast, interactive, and modern web '
@@ -133,7 +133,7 @@ class CourseDetailsScreen extends StatelessWidget {
               ),
 
               const SizedBox(height: 24),
-              SectionTitle('Instructor'),
+              const SectionTitle('Instructor'),
               const SizedBox(height: 8),
               Row(
                 children: [
@@ -146,12 +146,12 @@ class CourseDetailsScreen extends StatelessWidget {
                       children: [
                         Text('Safaa Abdelsalam',
                             style: lexendStyle(14, FontWeight.bold)),
-                        BodyText('Expert Frontend Engineer'),
+                        const BodyText('Expert Frontend Engineer'),
                       ]),
                 ],
               ),
               const SizedBox(height: 24),
-              SectionTitle('Reviews'),
+              const SectionTitle('Reviews'),
               const SizedBox(height: 12),
               _buildReview(
                   'Hiba Yasir',

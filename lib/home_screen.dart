@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: LearningHubScreen(),
+    home: HomeScreen(),
   ));
 }
 
-class LearningHubScreen extends StatelessWidget {
-  const LearningHubScreen({super.key});
-  
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,34 +32,36 @@ class LearningHubScreen extends StatelessWidget {
             const SearchBar(),
             const SizedBox(height: 24),
             const SectionTitle(title: 'Continue Learning'),
-            const SizedBox(height: 8),
-            CourseHorizontalList(
-              courses: [
-                Course("Arabic for Beginners", "Layla Hassan"),
-                Course("English Grammar Essentials", "Ethan Carter"),
-                Course("Advanced Calculus", "Dr. Omar Farouk"),
-              ],
-            ),
+            const SizedBox(height: 12),
+            CourseGridList(courses: [
+              Course("Arabic for Beginners", "Layla Hassan", "assets/arabic.png"),
+              Course("English Grammar Essentials", "Ethan Carter", "assets/english.png"),
+              Course("Advanced Calculus", "Dr. Omar Farouk", "assets/calculus.png"),
+            ]),
             const SizedBox(height: 24),
             const SectionTitle(title: 'Recommended for You'),
-            const SizedBox(height: 8),
-            CourseHorizontalList(
-              courses: [
-                Course("Digital Marketing Mastery", "Sophia Al-Mousa"),
-                Course("Creative Writing Workshop", "Jamal Al-Din"),
-                Course("Data Science Fundamentals", "Aaliyah Khan"),
-              ],
-            ),
+            const SizedBox(height: 12),
+            CourseGridList(courses: [
+              Course("Digital Marketing Mastery", "Sophia Al-Mousa", "assets/marketing.png"),
+              Course("Creative Writing Workshop", "Jamal Al-Din", "assets/creative_writing.png"),
+              Course("Data Science Fundamentals", "Aaliyah Khan", "assets/data_science.png"),
+            ]),
             const SizedBox(height: 24),
             const SectionTitle(title: 'New Arrivals'),
-            const SizedBox(height: 8),
-            CourseHorizontalList(
-              courses: [
-                Course("Cybersecurity Intro", "Rami Al-Khalid"),
-                Course("Photography Basics", "Isabella Rossi"),
-                Course("Spanish for Travel", "Javier Rodríguez"),
-              ],
-            ),
+            const SizedBox(height: 12),
+            CourseGridList(courses: [
+              Course("Introduction to Cybersecurity", "Rami Al-Khalid", "assets/cybersecurity.png"),
+              Course("Photography Basics", "Isabella Rossi", "assets/photography.png"),
+              Course("Spanish for Travel", "Javier Rodríguez", "assets/spanish.png"),
+            ]),
+            const SizedBox(height: 24),
+            const SectionTitle(title: 'Popular Courses'),
+            const SizedBox(height: 12),
+            CourseGridList(courses: [
+              Course("Project Management Professional", "Nadia Al-Sayed", "assets/project_mgmt.png"),
+              Course("Graphic Design Principles", "Marco Bianchi", "assets/graphic_design.png"),
+              Course("French Conversation Practice", "Camille Dubois", "assets/french.png"),
+            ]),
           ],
         ),
       ),
@@ -100,60 +102,60 @@ class SectionTitle extends StatelessWidget {
 class Course {
   final String title;
   final String instructor;
-  Course(this.title, this.instructor);
+  final String image;
+  Course(this.title, this.instructor, this.image);
 }
 
-class CourseHorizontalList extends StatelessWidget {
+class CourseGridList extends StatelessWidget {
   final List<Course> courses;
 
-  const CourseHorizontalList({required this.courses, super.key});
+  const CourseGridList({required this.courses, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 160,
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal,
-        itemCount: courses.length,
-        separatorBuilder: (context, _) => const SizedBox(width: 12),
-        itemBuilder: (context, index) {
-          final course = courses[index];
-          return Container(
-            width: 140,
-            decoration: BoxDecoration(
-              color: Colors.grey[100],
-              borderRadius: BorderRadius.circular(12),
-            ),
-            padding: const EdgeInsets.all(12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: Container(
+    return GridView.count(
+      crossAxisCount: 2,
+      mainAxisSpacing: 12,
+      crossAxisSpacing: 12,
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      childAspectRatio: 0.8,
+      children: courses.map((course) {
+        return Container(
+          decoration: BoxDecoration(
+            color: const Color(0xFFFFF6ED),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          padding: const EdgeInsets.all(12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.asset(
+                    course.image,
+                    fit: BoxFit.cover,
                     width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: const Icon(Icons.book, size: 40, color: Colors.white),
                   ),
                 ),
-                const SizedBox(height: 8),
-                Text(
-                  course.title,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                Text(
-                  "Instructor: ${course.instructor}",
-                  style: const TextStyle(fontSize: 12, color: Colors.grey),
-                ),
-              ],
-            ),
-          );
-        },
-      ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                course.title,
+                style: const TextStyle(fontWeight: FontWeight.bold),
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+              const SizedBox(height: 4),
+              Text(
+                "Instructor: ${course.instructor}",
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
+              ),
+            ],
+          ),
+        );
+      }).toList(),
     );
-
-
+  }
+}
