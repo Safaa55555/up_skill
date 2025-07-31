@@ -182,3 +182,4 @@ class CourseCard extends StatelessWidget {
     );
   }
 }
+
