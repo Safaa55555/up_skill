@@ -31,36 +31,40 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 16),
             const SearchBar(),
             const SizedBox(height: 24),
+
             const SectionTitle(title: 'Continue Learning'),
-            const SizedBox(height: 12),
-            CourseGridList(courses: [
+            const SizedBox(height: 8),
+            CourseHorizontalList(courses: [
               Course("Arabic for Beginners", "Layla Hassan", "assets/arabic.png"),
               Course("English Grammar Essentials", "Ethan Carter", "assets/english.png"),
               Course("Advanced Calculus", "Dr. Omar Farouk", "assets/calculus.png"),
             ]),
+
             const SizedBox(height: 24),
             const SectionTitle(title: 'Recommended for You'),
-            const SizedBox(height: 12),
-            CourseGridList(courses: [
+            const SizedBox(height: 8),
+            CourseHorizontalList(courses: [
               Course("Digital Marketing Mastery", "Sophia Al-Mousa", "assets/marketing.png"),
               Course("Creative Writing Workshop", "Jamal Al-Din", "assets/creative_writing.png"),
               Course("Data Science Fundamentals", "Aaliyah Khan", "assets/data_science.png"),
             ]),
+
             const SizedBox(height: 24),
             const SectionTitle(title: 'New Arrivals'),
-            const SizedBox(height: 12),
-            CourseGridList(courses: [
+            const SizedBox(height: 8),
+            CourseHorizontalList(courses: [
               Course("Introduction to Cybersecurity", "Rami Al-Khalid", "assets/cybersecurity.png"),
               Course("Photography Basics", "Isabella Rossi", "assets/photography.png"),
               Course("Spanish for Travel", "Javier Rodríguez", "assets/spanish.png"),
             ]),
+
             const SizedBox(height: 24),
             const SectionTitle(title: 'Popular Courses'),
-            const SizedBox(height: 12),
-            CourseGridList(courses: [
-              Course("Project Management Professional", "Nadia Al-Sayed", "assets/project_mgmt.png"),
+            const SizedBox(height: 8),
+            CourseHorizontalList(courses: [
+              Course("Project Management", "Nadia Al-Sayed", "assets/project_mgmt.png"),
               Course("Graphic Design Principles", "Marco Bianchi", "assets/graphic_design.png"),
-              Course("French Conversation Practice", "Camille Dubois", "assets/french.png"),
+              Course("French Conversation", "Camille Dubois", "assets/french.png"),
             ]),
           ],
         ),
@@ -102,60 +106,84 @@ class SectionTitle extends StatelessWidget {
 class Course {
   final String title;
   final String instructor;
-  final String image;
-  Course(this.title, this.instructor, this.image);
+  final String imageAsset;
+
+  Course(this.title, this.instructor, this.imageAsset);
 }
 
-class CourseGridList extends StatelessWidget {
+class CourseHorizontalList extends StatelessWidget {
   final List<Course> courses;
-
-  const CourseGridList({required this.courses, super.key});
+  const CourseHorizontalList({required this.courses, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 2,
-      mainAxisSpacing: 12,
-      crossAxisSpacing: 12,
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      childAspectRatio: 0.8,
-      children: courses.map((course) {
-        return Container(
-          decoration: BoxDecoration(
-            color: const Color(0xFFFFF6ED),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          padding: const EdgeInsets.all(12),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
+    return SizedBox(
+      height: 200, // Increased height to fix overflow
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: courses.length,
+        separatorBuilder: (context, _) => const SizedBox(width: 12),
+        itemBuilder: (context, index) {
+          final course = courses[index];
+          return Container(
+            width: 160,
+            decoration: BoxDecoration(
+              color: const Color(0xFFFDF5EF),
+              borderRadius: BorderRadius.circular(16),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black12,
+                  blurRadius: 4,
+                  offset: Offset(2, 2),
+                )
+              ],
+            ),
+            padding: const EdgeInsets.all(12),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
                   child: Image.asset(
-                    course.image,
-                    fit: BoxFit.cover,
+                    course.imageAsset,
                     width: double.infinity,
+                    height: 80,
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                        color: Colors.grey[300],
+                        height: 80,
+                        alignment: Alignment.center,
+                        child: const Icon(Icons.broken_image, size: 32),
+                      );
+                    },
                   ),
                 ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                course.title,
-                style: const TextStyle(fontWeight: FontWeight.bold),
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
-              const SizedBox(height: 4),
-              Text(
-                "Instructor: ${course.instructor}",
-                style: const TextStyle(fontSize: 12, color: Colors.grey),
-              ),
-            ],
-          ),
-        );
-      }).toList(),
+                const SizedBox(height: 8),
+                Text(
+                  course.title,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  "Instructor: ${course.instructor}",
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: Colors.grey,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }
