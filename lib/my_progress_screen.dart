@@ -1,4 +1,32 @@
-import 'package:flutter/material.dart' show AppBar, BottomNavigationBar, BottomNavigationBarItem, BoxFit, BuildContext, Colors, Column, Container, CrossAxisAlignment, EdgeInsets, Expanded, FontWeight, Icon, Icons, Image, LinearProgressIndicator, ListView, MaterialApp, Padding, Row, Scaffold, SizedBox, StatelessWidget, Text, TextStyle, Widget, runApp;
+import 'package:flutter/material.dart'
+    show
+        AppBar,
+        BottomNavigationBar,
+        BottomNavigationBarItem,
+        BoxFit,
+        BuildContext,
+        Colors,
+        Column,
+        Container,
+        CrossAxisAlignment,
+        EdgeInsets,
+        Expanded,
+        FontWeight,
+        Icon,
+        Icons,
+        Image,
+        LinearProgressIndicator,
+        ListView,
+        MaterialApp,
+        Padding,
+        Row,
+        Scaffold,
+        SizedBox,
+        StatelessWidget,
+        Text,
+        TextStyle,
+        Widget,
+        runApp;
 
 void main() => runApp(const MyApp());
 
@@ -40,7 +68,8 @@ class MyProgressScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double overallProgress = courses.map((c) => c.progress).reduce((a, b) => a + b) / courses.length;
+    double overallProgress =
+        courses.map((c) => c.progress).reduce((a, b) => a + b) / courses.length;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -55,7 +84,8 @@ class MyProgressScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Overall Progress', style: TextStyle(fontWeight: FontWeight.bold)),
+            const Text('Overall Progress',
+                style: TextStyle(fontWeight: FontWeight.bold)),
             const SizedBox(height: 8),
             LinearProgressIndicator(
               value: overallProgress,
@@ -63,9 +93,11 @@ class MyProgressScreen extends StatelessWidget {
               color: Colors.blue,
             ),
             const SizedBox(height: 4),
-            Text('${(overallProgress * 100).toInt()}%', style: TextStyle(color: Colors.grey[700])),
+            Text('${(overallProgress * 100).toInt()}%',
+                style: TextStyle(color: Colors.grey[700])),
             const SizedBox(height: 24),
-            const Text('My Courses', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Text('My Courses',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
             const SizedBox(height: 16),
             Expanded(
               child: ListView.builder(
@@ -131,9 +163,11 @@ class CourseItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(course.title, style: const TextStyle(fontWeight: FontWeight.bold)),
+                Text(course.title,
+                    style: const TextStyle(fontWeight: FontWeight.bold)),
                 const SizedBox(height: 4),
-                Text(course.subtitle, style: TextStyle(color: Colors.grey[600], fontSize: 12)),
+                Text(course.subtitle,
+                    style: TextStyle(color: Colors.grey[600], fontSize: 12)),
                 const SizedBox(height: 6),
                 LinearProgressIndicator(
                   value: course.progress,
