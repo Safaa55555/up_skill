@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:up_skill/welcome_screen.dart';
 import 'package:up_skill/widgets/app_button.dart';
@@ -20,7 +21,7 @@ class LanguageScreen extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text("Choose Your Language",
+                  Text('Choose Your Language'.tr(),
                       textAlign: TextAlign.center,
                       style: GoogleFonts.lexend(
                         fontSize: 22,

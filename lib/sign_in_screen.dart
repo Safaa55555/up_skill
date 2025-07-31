@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:up_skill/welcome_screen.dart';
 import 'widgets/app_button.dart';
 import 'widgets/app_text_field.dart';
 import 'sign_up_screen.dart';
@@ -83,7 +84,12 @@ class SignInScreen extends StatelessWidget {
               // Log In button
               AppButton(
                 label: "Log In",
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const WelcomeScreen()));
+                },
               ),
 
               const SizedBox(height: 12),
@@ -153,9 +159,3 @@ class SignInScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-

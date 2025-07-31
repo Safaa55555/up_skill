@@ -44,7 +44,7 @@ class WelcomeScreen extends StatelessWidget {
                   size: 30, color: Colors.grey), // dots
               const Spacer(),
               AppButton(
-                label: "Get Started",
+                label: 'Get Started'.tr(),
                 onPressed: () {
                   Navigator.pushReplacement(
                       context,

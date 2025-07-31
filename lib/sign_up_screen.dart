@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:up_skill/welcome_screen.dart';
 import 'widgets/app_button.dart';
 import 'widgets/app_text_field.dart';
 import 'sign_in_screen.dart';
@@ -34,35 +35,41 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 24),
-                Text("Full Name", style: GoogleFonts.lexend(fontWeight: FontWeight.w600)),
+                Text("Full Name",
+                    style: GoogleFonts.lexend(fontWeight: FontWeight.w600)),
                 const SizedBox(height: 8),
                 const AppTextField(hintText: "Enter your full name"),
-
                 const SizedBox(height: 16),
-                Text("Email Address", style: GoogleFonts.lexend(fontWeight: FontWeight.w600)),
+                Text("Email Address",
+                    style: GoogleFonts.lexend(fontWeight: FontWeight.w600)),
                 const SizedBox(height: 8),
                 const AppTextField(hintText: "Enter your email"),
-
                 const SizedBox(height: 16),
-                Text("Password", style: GoogleFonts.lexend(fontWeight: FontWeight.w600)),
+                Text("Password",
+                    style: GoogleFonts.lexend(fontWeight: FontWeight.w600)),
                 const SizedBox(height: 8),
                 const AppTextField(
                   hintText: "Enter your password",
                   isPassword: true,
-                  suffixIcon: Icon(Icons.visibility_outlined, color: Colors.grey),
+                  suffixIcon:
+                      Icon(Icons.visibility_outlined, color: Colors.grey),
                 ),
-
                 const SizedBox(height: 16),
-                Text("Confirm Password", style: GoogleFonts.lexend(fontWeight: FontWeight.w600)),
+                Text("Confirm Password",
+                    style: GoogleFonts.lexend(fontWeight: FontWeight.w600)),
                 const SizedBox(height: 8),
-                const AppTextField(hintText: "Confirm your password", isPassword: true),
-
+                const AppTextField(
+                    hintText: "Confirm your password", isPassword: true),
                 const SizedBox(height: 24),
                 AppButton(
                   label: "Sign Up",
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const WelcomeScreen()));
+                  },
                 ),
-
                 const SizedBox(height: 12),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -75,7 +82,8 @@ class SignUpScreen extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const SignInScreen()),
+                          MaterialPageRoute(
+                              builder: (context) => const SignInScreen()),
                         );
                       },
                       child: Text(
@@ -88,8 +96,6 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-
-
                 const SizedBox(height: 24),
                 AppButton(
                   label: "Sign up with Google",

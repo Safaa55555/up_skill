@@ -24,7 +24,10 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return const Scaffold(
         body: Row(
-      children: [Text("UpSkill", style: TextStyle()), Icon(Icons.arrow_upward)],
+      children: [
+        Center(child: Text("UpSkill", style: TextStyle())),
+        Icon(Icons.arrow_upward)
+      ],
     ));
   }
 }
