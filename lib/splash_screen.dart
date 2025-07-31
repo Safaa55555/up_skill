@@ -12,7 +12,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (_) => const LanguageScreen()),
@@ -24,13 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return const Scaffold(
         body: Row(
-      children: [
-        Text(
-          "UpSkill",
-          style: TextStyle(),
-        ),
-        Icon(Icons.arrow_upward)
-      ],
+      children: [Text("UpSkill", style: TextStyle()), Icon(Icons.arrow_upward)],
     ));
   }
 }

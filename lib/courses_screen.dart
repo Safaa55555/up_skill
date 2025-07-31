@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:up_skill/widgets/custom_bottom_nav_bar.dart';
 
 //we should import category screen too
 class CoursesScreen extends StatelessWidget {
@@ -15,11 +14,11 @@ class CoursesScreen extends StatelessWidget {
         ),
       ),
       child: Scaffold(
-          backgroundColor: Color(0xFFF7FAFC),
+          backgroundColor: const Color(0xFFF7FAFC),
           body: SafeArea(
               child: SingleChildScrollView(
                   child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 20),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Stack(

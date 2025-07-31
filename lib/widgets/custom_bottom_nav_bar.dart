@@ -22,7 +22,7 @@ class CustomBottomNavBar extends StatelessWidget {
         destination = const CategoriesScreen();
         break;
       case 2:
-        destination = const MyProgressScreen();
+        destination = MyProgressScreen();
         break;
       case 3:
         destination = const SearchScreen();
@@ -74,4 +74,3 @@ class CustomBottomNavBar extends StatelessWidget {
     );
   }
 }
-

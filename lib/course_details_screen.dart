@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:up_skill/widgets/section_title.dart';
-//import 'widgets.dart'; // import your reusable text widgets here
 
 class CourseDetailsScreen extends StatelessWidget {
   const CourseDetailsScreen({super.key});
@@ -32,12 +31,12 @@ class CourseDetailsScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              SectionTitle('Mastering React: Build Dynamic Web Apps'),
+              const SectionTitle('Mastering React: Build Dynamic Web Apps'),
               const SizedBox(height: 8),
-              BodyText(
+              const BodyText(
                   'Learn React from scratch and build real-world applications '
-                      'with this comprehensive course.. This course covers '
-                      'the basics to advanced techniques, suitable for all skill levels.'),
+                  'with this comprehensive course.. This course covers '
+                  'the basics to advanced techniques, suitable for all skill levels.'),
               const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -66,15 +65,13 @@ class CourseDetailsScreen extends StatelessWidget {
                       height: 40,
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF0A75C2
-                            ),
+                            backgroundColor: const Color(0xFF0A75C2),
                             foregroundColor: Colors.black,
                             elevation: 0,
                             side: BorderSide.none,
                           ),
                           child: Text(
                             "Watch Videos",
-
                             style: GoogleFonts.lexend(
                               fontWeight: FontWeight.bold,
                               fontSize: 14,
@@ -85,16 +82,16 @@ class CourseDetailsScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 24),
-              SectionTitle('About This Course'),
+              const SectionTitle('About This Course'),
               const SizedBox(height: 8),
               const BodyText(
                   'Learn how to build fast, interactive, and modern web '
-                      'applications using React, the world’s most popular'
-                      ' front-end library. This course covers everything from'
-                      ' the basics of components and JSX to advanced concepts '
-                      'like hooks, state management, and routing. Perfect'
-                      ' for beginners and intermediate developers who want '
-                      'to master building dynamic user interfaces.'),
+                  'applications using React, the world’s most popular'
+                  ' front-end library. This course covers everything from'
+                  ' the basics of components and JSX to advanced concepts '
+                  'like hooks, state management, and routing. Perfect'
+                  ' for beginners and intermediate developers who want '
+                  'to master building dynamic user interfaces.'),
               const SizedBox(height: 24),
               const SectionTitle('Curriculum'),
               const SizedBox(height: 12),
@@ -104,7 +101,7 @@ class CourseDetailsScreen extends StatelessWidget {
                 ['Module 3', 'Routing and Advanced Features'],
                 ['Module 4', 'Project: Building a Dynamic Web App'],
               ].map(
-                    (item) => Padding(
+                (item) => Padding(
                   padding: const EdgeInsets.symmetric(vertical: 6),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,17 +120,15 @@ class CourseDetailsScreen extends StatelessWidget {
                         style: GoogleFonts.lexend(
                           fontSize: 14,
                           fontWeight: FontWeight.normal,
-                            color: const Color(0xFF4A7A9C),
-
+                          color: const Color(0xFF4A7A9C),
                         ),
                       ),
                     ],
                   ),
                 ),
               ),
-
               const SizedBox(height: 24),
-              SectionTitle('Instructor'),
+              const SectionTitle('Instructor'),
               const SizedBox(height: 8),
               Row(
                 children: [
@@ -146,12 +141,12 @@ class CourseDetailsScreen extends StatelessWidget {
                       children: [
                         Text('Safaa Abdelsalam',
                             style: lexendStyle(14, FontWeight.bold)),
-                        BodyText('Expert Frontend Engineer'),
+                        const BodyText('Expert Frontend Engineer'),
                       ]),
                 ],
               ),
               const SizedBox(height: 24),
-              SectionTitle('Reviews'),
+              const SectionTitle('Reviews'),
               const SizedBox(height: 12),
               _buildReview(
                   'Hiba Yasir',

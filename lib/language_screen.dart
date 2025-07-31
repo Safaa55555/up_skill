@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:up_skill/welcome_screen.dart';
 import 'package:up_skill/widgets/app_button.dart';
 
 class LanguageScreen extends StatelessWidget {
@@ -30,7 +31,10 @@ class LanguageScreen extends StatelessWidget {
                   AppButton(
                     label: "English",
                     onPressed: () {
-                      // TODO: navigate or select language
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const WelcomeScreen()));
                     },
                   ),
                   const SizedBox(height: 12),
