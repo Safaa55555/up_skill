@@ -1,6 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:up_skill/splash_screen.dart';
+=======
+import 'package:up_skill/home_screen.dart';
+import 'package:up_skill/language_screen.dart';
+
+>>>>>>> fa5c5d92cf2678b46b488ce45424b9ec78f8606b
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,9 +26,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
+      title: 'upskill',
       theme: ThemeData(
+<<<<<<< HEAD
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFF7FAFC)),
         useMaterial3: true,
       ),
@@ -30,6 +36,16 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       home: const SplashScreen(),
+=======
+
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+
+      home: const HomeScreen(),
+>>>>>>> fa5c5d92cf2678b46b488ce45424b9ec78f8606b
     );
   }
 }
+
+
