@@ -5,7 +5,7 @@ class AccountScreen extends StatelessWidget {
   const AccountScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: const Center(child: Text("Account Page")),
-        bottomNavigationBar: const CustomBottomNavBar(currentIndex: 4));
+    return const Scaffold(body: Center(child: Text("Account Page")),
+        bottomNavigationBar: CustomBottomNavBar(currentIndex: 4));
   }
 }

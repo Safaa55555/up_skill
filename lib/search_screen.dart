@@ -6,7 +6,7 @@ class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: const Center(child: Text("Search Page" , style: TextStyle(color: Colors.black),))
-    , bottomNavigationBar: const CustomBottomNavBar(currentIndex: 3));
+    return const Scaffold(body: Center(child: Text("Search Page" , style: TextStyle(color: Colors.black),))
+    , bottomNavigationBar: CustomBottomNavBar(currentIndex: 3));
   }
 }

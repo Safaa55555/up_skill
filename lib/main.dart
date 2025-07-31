@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:up_skill/categories_screen.dart';
+import 'package:up_skill/home_screen.dart';
 import 'package:up_skill/language_screen.dart';
-import 'package:up_skill/my_progress_screen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -14,14 +14,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'upskill',
       theme: ThemeData(
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
 
-      home: const CategoriesScreen(),
+      home: const HomeScreen(),
     );
   }
 }
