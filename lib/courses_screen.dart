@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: LearningHubScreen(),
-  ));
-}
-
 class LearningHubScreen extends StatelessWidget {
   const LearningHubScreen({super.key});
 
@@ -135,7 +128,8 @@ class CourseHorizontalList extends StatelessWidget {
                       color: Colors.orange[200],
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    child: const Icon(Icons.book, size: 40, color: Colors.white),
+                    child:
+                        const Icon(Icons.book, size: 40, color: Colors.white),
                   ),
                 ),
                 const SizedBox(height: 8),
@@ -157,4 +151,3 @@ class CourseHorizontalList extends StatelessWidget {
     );
   }
 }
-

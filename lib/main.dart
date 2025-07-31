@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:up_skill/categories_screen.dart';
+import 'package:up_skill/courses_screen.dart';
+import 'package:up_skill/my_progress_screen.dart';
+import 'package:up_skill/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const CategoriesScreen(),
+      home: MyProgressScreen(),
     );
   }
 }
