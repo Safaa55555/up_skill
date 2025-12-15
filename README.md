@@ -1,6 +1,6 @@
 # up_skill
 
-new Flutter project.
+UpSkill is an upskilling platform designed to help users learn and improve practical skills across multiple fields, including artificial intelligence, software development, graphic design, and other technology-driven domains. The platform focuses on making learning accessible and hands-on, allowing users to explore different categories, practice through real examples, and gradually build confidence and competence. UpSkill is intended for learners who want to grow their skills at their own pace and apply knowledge in a practical, meaningful way.
 
 ## Getting Started
 
